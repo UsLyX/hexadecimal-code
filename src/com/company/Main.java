@@ -5,6 +5,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        long result = 0;
+
         Scanner in = new Scanner(System.in);
         System.out.println("Введите два числа из дисятичной системы исчисления для перевода в шестнадцатиричную \n");
 
@@ -21,8 +23,27 @@ public class Main {
         System.out.println("\n");
 
 
-        long result = number1 + number2;
-        System.out.print("Результат сложения шестнадцетиричных чисел: ");
+        System.out.print("Введите арефметическую операцию над этими двумя числами: ");
+        String operation = in.next();
+        switch (operation) {
+            case "+" -> {
+                System.out.print("Результат сложения шестнадцетиричных чисел: ");
+                result = plus(number1, number2);
+            }
+            case "-" -> {
+                System.out.print("Результат вычитания шестнадцетиричных чисел: ");
+                result = min(number1, number2);
+            }
+            case "*" -> {
+                System.out.print("Результат умножения шестнадцетиричных чисел: ");
+                result = mul(number1, number2);
+            }
+            case "/" -> {
+                System.out.print("Результат деления шестнадцетиричных чисел: ");
+                result = del(number1, number2);
+            }
+        }
+        translationExpression(result);
         translationExpression(result);
 
     }
@@ -78,5 +99,17 @@ public class Main {
             arr[i++] = String.valueOf(ost);
         }
         array(arr);
+    }
+    static long plus(long number1, long number2){
+        return number1 + number2;
+    }
+    static long min(long number1, long number2){
+        return number1 - number2;
+    }
+    static long mul(long number1, long number2){
+        return number1 * number2;
+    }
+    static long del(long number1, long number2){
+        return number1 / number2;
     }
 }
